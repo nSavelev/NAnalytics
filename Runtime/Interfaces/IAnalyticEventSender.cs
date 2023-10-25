@@ -2,6 +2,6 @@
 {
     public interface IAnalyticEventSender
     {
-        void SendEvent<TEvent>(TEvent @event) where TEvent : struct, IAnalyticEvent;
+        void SendEvent<TEvent>(TEvent @event) where TEvent : IAnalyticEvent;
     }
 }

@@ -20,7 +20,7 @@ namespace NAnalytics.Runtime
             }
         }
 
-        public void SendEvent<TEvent>(TEvent @event) where TEvent : struct, IAnalyticEvent
+        public void SendEvent<TEvent>(TEvent @event) where TEvent : IAnalyticEvent
         {
             for (var i = 0; i < _providers.Count; i++)
             {

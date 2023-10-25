@@ -7,7 +7,7 @@ namespace NAnalytics.Runtime
     {
         protected IAnalyticGlobalParamsSetter GlobalSetter { get; private set; }
 
-        public virtual void SendEvent<TEvent>(TEvent @event) where TEvent : struct, IAnalyticEvent
+        public virtual void SendEvent<TEvent>(TEvent @event) where TEvent : IAnalyticEvent
         {
             var name = GetEventName(@event);
             var paramsDictionary = GetEventParamsDictionary();
@@ -21,7 +21,7 @@ namespace NAnalytics.Runtime
             return new Dictionary<string, object>();
         }
 
-        protected virtual string GetEventName<TEvent>(TEvent @event) where TEvent : struct, IAnalyticEvent
+        protected virtual string GetEventName<TEvent>(TEvent @event) where TEvent : IAnalyticEvent
         {
             return @event.Name;
         }
